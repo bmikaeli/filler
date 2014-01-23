@@ -6,7 +6,7 @@
 #    By: bmikaeli <bmikaeli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/01/13 12:07:57 by bmikaeli          #+#    #+#              #
-#    Updated: 2014/01/22 17:00:34 by bmikaeli         ###   ########.fr        #
+#    Updated: 2014/01/23 12:33:27 by bmikaeli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,14 +15,14 @@ CFLAGS = -Wall -Werror -Wextra
 SRCS_D = srcs/
 OBJS_D = objs/
 HEADERS = includes/
-SRCS = main.c map.c tools.c search.c
+SRCS = main.c map.c champs.c search.c ft_free.c dir_prop.c
 
 OBJS = $(SRCS:.c=.o)
 OBJS_P = $(addprefix $(OBJS_D), $(OBJS))
 LDIR = libft
 LFLAGS = -L$(LDIR) -lft
 
-NAME = bmikaeli.filler
+NAME = zaphod.filler
 
 all: lib $(NAME)
 

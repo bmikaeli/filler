@@ -6,7 +6,7 @@
 /*   By: bmikaeli <bmikaeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/13 12:18:29 by bmikaeli          #+#    #+#             */
-/*   Updated: 2014/01/22 13:29:56 by bmikaeli         ###   ########.fr       */
+/*   Updated: 2014/01/23 11:11:56 by bmikaeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,10 @@ void		ft_freetab(char **tab);
 void		ft_free(t_env *env);
 int			opponent(t_env *env, int y, int x);
 int			my_champ(t_env *env, int y, int x);
+void		up_left(int x, int y, int score, t_env *env);
+void		up_right(int x, int y, int score, t_env *env);
+void		down_left(int x, int y, int score, t_env *env);
+void		down_right(int x, int y, int score, t_env *env);
+int			ft_trypiece(t_env *env, int y, int x);
 
 #endif

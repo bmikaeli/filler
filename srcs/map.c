@@ -6,7 +6,7 @@
 /*   By: bmikaeli <bmikaeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/13 13:13:40 by bmikaeli          #+#    #+#             */
-/*   Updated: 2014/01/22 11:56:55 by bmikaeli         ###   ########.fr       */
+/*   Updated: 2014/01/23 12:47:03 by bmikaeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int			load_map(t_env *env)
 		ft_freetab(tmp);
 		tmp = 0;
 		free(line);
-		i = i + 1;
+		i++;
 	}
 	env->map[env->height] = 0;
 	return (0);
@@ -76,7 +76,7 @@ int			load_piece(t_env *env)
 			return (-1);
 		env->piece[i] = ft_strdup(line);
 		free(line);
-		i = i + 1;
+		i++;
 	}
 	env->piece[env->piece_h] = 0;
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: bmikaeli <bmikaeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/14 11:41:41 by bmiakeli          #+#    #+#             */
-/*   Updated: 2014/01/22 15:57:01 by bmikaeli         ###   ########.fr       */
+/*   Updated: 2014/01/23 13:33:31 by bmikaeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ static int		ft_checkpos(t_env *env, t_cord *piece, int y, int x)
 	try.y = (y < 0) ? env->height - 1 + y : y;
 	if (env->piece[piece->y][piece->x] == '*' && my_champ(env, try.y, try.x))
 		ret = 1;
-	else if (env->piece[piece->y][piece->x] == '*' && opponent(env, try.y, try.x))
+	else if (env->piece[piece->y][piece->x] == '*'
+			&& opponent(env, try.y, try.x))
 		ret = 2;
 	return (ret);
 }
@@ -37,7 +38,7 @@ static void		ft_initvar(t_cord *piece, int *ret, int *hit, int *oponent)
 	*oponent = 0;
 }
 
-static int		ft_trypiece(t_env *env, int y, int x)
+int				ft_trypiece(t_env *env, int y, int x)
 {
 	int		ret;
 	int		hit;
@@ -73,78 +74,17 @@ static void		ft_checkmap(t_env *env)
 
 	x = 0;
 	y = 0;
-	static int i= 0;
-	if (i % 4 == 1)
-	{
-		while (y + env->piece_h < env->height)
-		{
-			while (x + env->piece_w < env->width )
-			{
-				score = (env->height - y) + (env->width - x);
-				if (ft_trypiece(env, y, x) == 0 && score < env->best_score)
-				{
-					env->best_x = x;
-					env->best_y = y;
-					env->best_score = score;
-				}
-				x++;
-			}
-			x = 0;
-			y++;
-		}
-	}
-	else if (i % 4 == 0)
-		while (y + env->piece_h < env->height)
-		{
-			while (x + env->piece_w < env->width )
-			{
-				score = -(env->height - y) + (env->width - x);
-				if (ft_trypiece(env, y, x) == 0 && score < env->best_score)
-				{
-					env->best_x = x;
-					env->best_y = y;
-					env->best_score = score;
-				}
-				x++;
-			}
-			x = 0;
-			y++;
-		}
-		else if (i % 4 == 2)
-		while (y + env->piece_h < env->height)
-		{
-			while (x + env->piece_w < env->width )
-			{
-				score = -(env->height - y) - (env->width - x);
-				if (ft_trypiece(env, y, x) == 0 && score < env->best_score)
-				{
-					env->best_x = x;
-					env->best_y = y;
-					env->best_score = score;
-				}
-				x++;
-			}
-			x = 0;
-			y++;
-		}
-		else
-		while (y + env->piece_h < env->height)
-		{
-			while (x + env->piece_w < env->width )
-			{
-				score = (env->height - y) - (env->width - x);
-				if (ft_trypiece(env, y, x) == 0 && score < env->best_score)
-				{
-					env->best_x = x;
-					env->best_y = y;
-					env->best_score = score;
-				}
-				x++;
-			}
-			x = 0;
-			y++;
-		}
-		i++;
+	score = 0;
+	static int i = 0;
+	if (i % 8 == 1 || i % 8 == 2)
+		up_left(x, y, score, env);
+	else if (i % 8 == 3)
+		up_right(x, y, score, env);
+	else if (i % 8 == 5)
+		down_left(x, y, score, env);
+	else
+		down_right(x, y, score, env);
+	i++;
 }
 
 int				ft_search(t_env *env)
