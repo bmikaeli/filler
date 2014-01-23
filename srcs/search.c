@@ -6,14 +6,14 @@
 /*   By: bmikaeli <bmikaeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/14 11:41:41 by bmiakeli          #+#    #+#             */
-/*   Updated: 2014/01/23 15:04:14 by bmikaeli         ###   ########.fr       */
+/*   Updated: 2014/01/23 15:25:19 by bmikaeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 #include <filler.h>
 
-static int		ft_checkpos(t_env *env, t_cord *piece, int y, int x)
+static int	ft_checkpos(t_env *env, t_cord *piece, int y, int x)
 {
 	int		ret;
 	t_cord	try;
@@ -29,7 +29,7 @@ static int		ft_checkpos(t_env *env, t_cord *piece, int y, int x)
 	return (ret);
 }
 
-static void		ft_initvar(t_cord *piece, int *ret, int *hit, int *oponent)
+static void	ft_initvar(t_cord *piece, int *ret, int *hit, int *oponent)
 {
 	piece->x = 0;
 	piece->y = 0;
@@ -38,7 +38,7 @@ static void		ft_initvar(t_cord *piece, int *ret, int *hit, int *oponent)
 	*oponent = 0;
 }
 
-int				ft_trypiece(t_env *env, int y, int x)
+int			ft_trypiece(t_env *env, int y, int x)
 {
 	int		ret;
 	int		hit;
@@ -66,7 +66,7 @@ int				ft_trypiece(t_env *env, int y, int x)
 	return ((hit == 1 && oponent == 0) ? 0 : 1);
 }
 
-static void		ft_checkmap(t_env *env)
+static void	ft_checkmap(t_env *env)
 {
 	int		x;
 	int		y;
@@ -76,7 +76,7 @@ static void		ft_checkmap(t_env *env)
 	y = 0;
 	score = 0;
 	static int i = 0;
-	if (i % 4== 1)
+	if (i % 4 == 1)
 		up_left(x, y, score, env);
 	else if (i % 4 == 2)
 		up_right(x, y, score, env);
@@ -87,7 +87,7 @@ static void		ft_checkmap(t_env *env)
 	i++;
 }
 
-int				ft_search(t_env *env)
+int			ft_search(t_env *env)
 {
 	ft_checkmap(env);
 	ft_putnbr(env->best_y);

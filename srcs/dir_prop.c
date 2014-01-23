@@ -6,7 +6,7 @@
 /*   By: bmikaeli <bmikaeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/23 11:03:47 by bmikaeli          #+#    #+#             */
-/*   Updated: 2014/01/23 15:09:27 by bmikaeli         ###   ########.fr       */
+/*   Updated: 2014/01/23 15:24:59 by bmikaeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ void	up_right(int x, int y, int score, t_env *env)
 	{
 		while (x + env->piece_w < env->width)
 		{
-			score = -(env->height - y);
+			score = - (env->height - y);
 			if (i % 2 == 1)
-				score = -(env->height - y) + (env->width - x);
+				score = - (env->height - y) + (env->width - x);
 			if (ft_trypiece(env, y, x) == 0 && score < env->best_score)
 			{
 				env->best_x = x;
