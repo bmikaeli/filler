@@ -6,7 +6,7 @@
 /*   By: bmikaeli <bmikaeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/14 11:41:41 by bmiakeli          #+#    #+#             */
-/*   Updated: 2014/01/23 15:25:19 by bmikaeli         ###   ########.fr       */
+/*   Updated: 2014/01/24 19:01:29 by bmikaeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,9 @@ static void	ft_checkmap(t_env *env)
 	y = 0;
 	score = 0;
 	static int i = 0;
-	if (i % 4 == 1)
+	if (i % 4 == 1 && i >= env->width)
 		up_left(x, y, score, env);
-	else if (i % 4 == 2)
+	else if (i % 4 == 2 && i >= env->width)
 		up_right(x, y, score, env);
 	else if (i % 4 == 3)
 		down_left(x, y, score, env);
