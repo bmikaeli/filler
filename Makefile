@@ -6,7 +6,7 @@
 #    By: bmikaeli <bmikaeli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/01/13 12:07:57 by bmikaeli          #+#    #+#              #
-#    Updated: 2014/01/23 12:33:27 by bmikaeli         ###   ########.fr        #
+#    Updated: 2014/01/25 15:23:09 by bmikaeli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ OBJS_P = $(addprefix $(OBJS_D), $(OBJS))
 LDIR = libft
 LFLAGS = -L$(LDIR) -lft
 
-NAME = zaphod.filler
+NAME = filler
 
 all: lib $(NAME)
 
